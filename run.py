@@ -7,7 +7,7 @@ def calc(points, total_pts, multiplier):
   if points==1:
     return S
   points = points - 1
-  T = (points, (points*multiplier) % (total_points) )  
+  T = (points, (points*multiplier) % (total_pts) )  
   S.append(T)
   return calc(points, total_pts, multiplier)
 
@@ -78,18 +78,19 @@ def draw(sequence, color):
 
   #plt.close('all')
   
+def run_whaldorf(factor):
+  total_points = 200
+  color = np.random.rand(3,)
+  factor = factor
+  A = calc(total_points,total_points,factor)
+  draw(A, color)
+  print(f'{total_points}, {factor}')
+  S.clear()
 
-total_points = 300
-color = np.random.rand(3,)
-factor = 2
-A = calc(total_points,total_points,factor)
-draw(A, color)
-print(f'{total_points}, {factor}')
-S.clear()
-
+run_whaldorf(220)
 
 # total_points = 300
-# for i in range(2,1000):
+# for i in range(2,30):
 #   color = np.random.rand(3,)
 #   factor = i
 #   A = calc(total_points,total_points,factor)
